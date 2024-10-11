@@ -40,4 +40,13 @@
         - php
       state: latest
     when: ansible_distribution == "CentOS"
-    
+  - name: copy html file from server to user
+    tags: httpd,centos
+    copy:
+      src: index.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644 
+
+
